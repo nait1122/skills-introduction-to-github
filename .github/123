@@ -1,0 +1,8 @@
+setwd('D:/charls/2015/')
+library(haven)
+library(tidyverse)
+library(lm.beta)
+library(dplyr)
+library(tableone)
+new_stroke_patients2015<-read_dta('D:/charls/2015/Health_Status_and_Functioning.dta')%>%
+  mutate(stroke_flag = ifelse(da007_8_ == 1 | da007_w2_2_8_ == 1, 1, 0))
